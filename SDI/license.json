@@ -1,0 +1,32 @@
+{
+  "content": {
+    "licensee": {
+      "firstName": "Seokjin",
+      "lastName": "Lee",
+      "email": "sjlee@pndsolution.com",
+      "company": "PND Solution - This is a Not for Resell (NFR) license"
+    },
+    "instanceId": "3i5sfimb",
+    "licenseKind": "PARTNER_NFR",
+    "licenseId": "IaPWqJVirEc3GCfb",
+    "properties": {
+      "addons.advancedLLMMesh": "true",
+      "maxTechnicalAccounts": "25",
+      "usageData.privacyMode": "DEFAULT",
+      "emittedBy": "cloudadmin (sf-flow)",
+      "maxAIConsumers": "25",
+      "usageData.reportingMode": "DEFAULT",
+      "emittedOn": "20251031",
+      "standardOffer": "enterprise-ai-fy2025-1",
+      "maxAdvancedAnalyticsDesigners": "25",
+      "projectDescription": "NFR - P\u0026D Solution - This is a Not for Resell (NFR) license",
+      "maxFullDesigners": "25",
+      "features.govern.blueprintDesigner": "true",
+      "maxDataDesigners": "25"
+    },
+    "expiresOn": "20260131"
+  },
+  "r1Sig": "bz/w4PyEMX2zitQq+KwjL+uMgQv2WeEkKFp45ug6RkAA/UqMiaFWBVEsPM9wQ9AzGWSw+oatrX6q9WJibasT9hX7ZvXakG/UazPbVZm7bLo9sx+SU3oduX7caZD4owdkN8kT3wf0kn3txcecGpVICZySbC95nw80ZsEKgVvNKPY\u003d",
+  "r1Pub": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDqyiqepcWLOnxAX+nuRvTeapLJ3sAWJ0DCtJjrraYnrTSwbVZJ5Xu5ZPukb99mxq45z3jux6ljlmdMlo0/hRwKLHEIjzK7B+XGSJYBcSfcUEe8ENcHV7ZW5PSpxYWWq2h+aA/xpsA3vvM1DWxdgSUErnY2kaZe2X2nStQHlpwBmwIDAQAB",
+  "r1PubSig": "OG7+Ke0UY+poOjCVj43krxo5uqHZ/Itrh27rIwlRhIzBsWvxjTGThDDaaNhwxTwDCjenX5rdCkYqrauD0ztE2Y7iBDSgO7PkzgVW+KFdRrYM+zsEr7nsGfhgdDVQnCUetD4kOxbaqCl7LDo0DXaT+bZGdiNjyiq3ByslIEA5QQ8\u003d"
+}
