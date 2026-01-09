@@ -1,4 +1,4 @@
-# Lab#2 - Connection 생성
+# Lab - Connection 생성
 
 ## MySQL driver 다운로드
 
