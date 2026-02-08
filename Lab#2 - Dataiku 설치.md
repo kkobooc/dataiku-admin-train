@@ -14,9 +14,6 @@ cd dataiku-admin-train
 wget https://github.com/kkobooc/dataiku-admin-train/archive/refs/heads/main.zip
 unzip main.zip
 cd dataiku-admin-train-main
-
-# 라이센스 파일 복사
-sudo cp license.json /opt/dataiku/
 ```
 
 ## 설치 디렉토리 생성
@@ -68,8 +65,8 @@ cd /opt/dataiku/dataiku-dss-14.3.3/
 # install 파일 확인
 ls installer.sh
 
-# 설치 명령어 실행
-./installer.sh -d /dataiku/design -p 10000
+# 설치 명령어 실행 (~/dataiku-admin-train 에서 다운받은 경우)
+./installer.sh -d /dataiku/design -p 10000 -l ~/dataiku-admin-train/license.json
 ```
 
 ## 실행 - design node
@@ -106,7 +103,7 @@ sudo firewall-cmd --reload
 mkdir /dataiku/automation
 
 cd /opt/dataiku/dataiku-dss-14.3.3
-./installer.sh -t automation -d /dataiku/automation -p 11000
+./installer.sh -t automation -d /dataiku/automation -p 11000 -l ~/dataiku-admin-train/license.json
 ```
 
 ## 실행 - automation node
@@ -134,7 +131,7 @@ sudo -i "/opt/dataiku/dataiku-dss-14.3.3/scripts/install/install-boot.sh" "/data
 ```bash
 mkdir /dataiku/api
 cd /opt/dataiku/dataiku-dss-14.3.3/
-./installer.sh -t api -d /dataiku/api -p 12000 -l /opt/dataiku/license.json
+./installer.sh -t api -d /dataiku/api -p 12000 -l ~/dataiku-admin-train/license.json
 ```
 
 ## 실행 - api node
