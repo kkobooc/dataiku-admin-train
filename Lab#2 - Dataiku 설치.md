@@ -8,12 +8,15 @@
 ```bash
 # git 사용
 git clone https://github.com/kkobooc/dataiku-admin-train.git
-cd dataiku-admin-train/dwchem
+cd dataiku-admin-train
 
 # 또는 zip 다운로드
 wget https://github.com/kkobooc/dataiku-admin-train/archive/refs/heads/main.zip
 unzip main.zip
-cd dataiku-admin-train-main/dwchem
+cd dataiku-admin-train-main
+
+# 라이센스 파일 복사
+sudo cp license.json /opt/dataiku/
 ```
 
 ## 설치 디렉토리 생성
