@@ -3,6 +3,19 @@
 ## 전제사항
 본 설치 과정은 RHEL/Rocky Linux에 dataiku 계정이 생성이 되어 있고, sudo 권한을 보유한 것으로 전제 합니다.
 
+## 교육 자료 다운로드
+
+```bash
+# git 사용
+git clone https://github.com/kkobooc/dataiku-admin-train.git
+cd dataiku-admin-train/dwchem
+
+# 또는 zip 다운로드
+wget https://github.com/kkobooc/dataiku-admin-train/archive/refs/heads/main.zip
+unzip main.zip
+cd dataiku-admin-train-main/dwchem
+```
+
 ## 설치 디렉토리 생성
 ```bash
 sudo mkdir -p /opt/dataiku
