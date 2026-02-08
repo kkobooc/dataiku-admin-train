@@ -19,23 +19,23 @@ tar xzf mysql-connector-j-8.4.0.tar.gz
 ## DSS stop
 
 ```bash
-/data/dataiku/design/bin/dss stop
+/dataiku/design/bin/dss stop
 ```
 
 ## Driver Jar 파일 복사 to Dataiku
 
 ```bash
-cp ./mysql-connector-j-8.4.0/mysql-connector-j-8.4.0.jar /data/dataiku/design/lib/jdbc/
+cp ./mysql-connector-j-8.4.0/mysql-connector-j-8.4.0.jar /dataiku/design/lib/jdbc/
 ```
 
 ## DSS start
 
 ```bash
-/data/dataiku/design/bin/dss start
+/dataiku/design/bin/dss start
 ```
 
 ## 옵션) DSS restart
 
 ```bash
-/data/dataiku/design/bin/dss restart
+/dataiku/design/bin/dss restart
 ```

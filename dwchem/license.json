@@ -8,25 +8,25 @@
     },
     "instanceId": "3i5sfimb",
     "licenseKind": "PARTNER_NFR",
-    "licenseId": "IaPWqJVirEc3GCfb",
+    "licenseId": "5uhyON39y9lawedp",
     "properties": {
       "addons.advancedLLMMesh": "true",
-      "maxTechnicalAccounts": "25",
+      "maxTechnicalAccounts": "10",
       "usageData.privacyMode": "DEFAULT",
       "emittedBy": "cloudadmin (sf-flow)",
-      "maxAIConsumers": "25",
+      "maxAIConsumers": "10",
       "usageData.reportingMode": "DEFAULT",
-      "emittedOn": "20251031",
+      "emittedOn": "20260121",
       "standardOffer": "enterprise-ai-fy2025-1",
-      "maxAdvancedAnalyticsDesigners": "25",
+      "maxAdvancedAnalyticsDesigners": "10",
       "projectDescription": "NFR - P\u0026D Solution - This is a Not for Resell (NFR) license",
-      "maxFullDesigners": "25",
+      "maxFullDesigners": "50",
       "features.govern.blueprintDesigner": "true",
-      "maxDataDesigners": "25"
+      "maxDataDesigners": "10"
     },
-    "expiresOn": "20260131"
+    "expiresOn": "20260421"
   },
-  "r1Sig": "bz/w4PyEMX2zitQq+KwjL+uMgQv2WeEkKFp45ug6RkAA/UqMiaFWBVEsPM9wQ9AzGWSw+oatrX6q9WJibasT9hX7ZvXakG/UazPbVZm7bLo9sx+SU3oduX7caZD4owdkN8kT3wf0kn3txcecGpVICZySbC95nw80ZsEKgVvNKPY\u003d",
+  "r1Sig": "mhX1ZoogvLITMig/D1m0SleKD8AOGF4gHGF1kuBlH15zxeCPKKIUtrA07NuhDvd0GNDB40kZ/foS4at6Y0XKK1KLIgdQ70/6at1JrXxSXzpNfqjRP28OUHPl4uA6tABoQbUy69NcHeHtsZi/hDmMezvnXkA730oc/n0P0oihcYM\u003d",
   "r1Pub": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDqyiqepcWLOnxAX+nuRvTeapLJ3sAWJ0DCtJjrraYnrTSwbVZJ5Xu5ZPukb99mxq45z3jux6ljlmdMlo0/hRwKLHEIjzK7B+XGSJYBcSfcUEe8ENcHV7ZW5PSpxYWWq2h+aA/xpsA3vvM1DWxdgSUErnY2kaZe2X2nStQHlpwBmwIDAQAB",
   "r1PubSig": "OG7+Ke0UY+poOjCVj43krxo5uqHZ/Itrh27rIwlRhIzBsWvxjTGThDDaaNhwxTwDCjenX5rdCkYqrauD0ztE2Y7iBDSgO7PkzgVW+KFdRrYM+zsEr7nsGfhgdDVQnCUetD4kOxbaqCl7LDo0DXaT+bZGdiNjyiq3ByslIEA5QQ8\u003d"
 }

@@ -1,7 +1,7 @@
 # 관리자 교육 - 제품 설치
 
 ## 전제사항
-본 설치 과정은 Linux에 dataiku 계정이 생성이 되어 있고, sudo 권한을 보유한 것으로 전제 합니다.
+본 설치 과정은 RHEL/Rocky Linux에 dataiku 계정이 생성이 되어 있고, sudo 권한을 보유한 것으로 전제 합니다.
 
 ## 설치 디렉토리 생성
 ```bash
@@ -12,13 +12,13 @@ cd /opt/dataiku
 ## 설치 파일 download ( 2.0GB, 약 2분)
 
 ```bash
-sudo wget https://cdn.downloads.dataiku.com/public/dss/14.3.1/dataiku-dss-14.3.1.tar.gz
+sudo wget https://cdn.downloads.dataiku.com/public/dss/14.3.3/dataiku-dss-14.3.3.tar.gz
 ```
 
 ## 압축 해제
 
 ```bash
-sudo tar xzf dataiku-dss-14.3.1.tar.gz
+sudo tar xzf dataiku-dss-14.3.3.tar.gz
 sudo chmod 755 -R /opt/dataiku
 ```
 
@@ -26,56 +26,59 @@ sudo chmod 755 -R /opt/dataiku
 
 ```bash
 # 필수 - 최신 패키지 업데이트
-sudo apt update && sudo apt upgrade -y
+sudo dnf update -y
 
 # root 권한으로 종속성 설치
-sudo -i "/opt/dataiku/dataiku-dss-14.3.1/scripts/install/install-deps.sh -yes"
+sudo -i "/opt/dataiku/dataiku-dss-14.3.3/scripts/install/install-deps.sh -yes"
 ```
 ## <img src="https://img.shields.io/badge/Design-Node-blue?style=flat&logo=architect">
 ## 설치 - design node
 
 ```bash
 # Data 디렉토리 생성
-sudo mkdir -p /data/dataiku
+sudo mkdir -p /dataiku
 
 # 생성한 디렉토리의 owner를 dataiku 로 전환
-sudo chown -R dataiku:dataiku /data/dataiku
-sudo chmod 755 -R /data/dataiku
-cd /data/dataiku
+sudo chown -R dataiku:dataiku /dataiku
+sudo chmod 755 -R /dataiku
+cd /dataiku
 
 # design node 설정을 위한 디렉토리 생성
 mkdir design
 
 # 설치 디렉토리로 이동
-cd /opt/dataiku/dataiku-dss-14.3.1/
+cd /opt/dataiku/dataiku-dss-14.3.3/
 
 # install 파일 확인
 ls installer.sh
 
 # 설치 명령어 실행
-./installer.sh -d /data/dataiku/design -p 10010
+./installer.sh -d /dataiku/design -p 10000
 ```
 
 ## 실행 - design node
 
 ```bash
 # Dataiku Design Node 시작
-/data/dataiku/design/bin/dss start
+/dataiku/design/bin/dss start
 
 # 서비스 상태 확인
-/data/dataiku/design/bin/dss status
+/dataiku/design/bin/dss status
 
 # Linux 서버 부팅 시 자동 실행 설정
-sudo -i "/home/dataiku/dataiku-dss-14.3.1/scripts/install/install-boot.sh" "/data/dataiku/design" dataiku
+sudo -i "/opt/dataiku/dataiku-dss-14.3.3/scripts/install/install-boot.sh" "/dataiku/design" dataiku
 ```
 
 ## Design node 접속
 
-- http://localhost:10010
+- http://<서버IP>:10000
 - 혹시 방화벽이 있어 포트 접속이 안되면 아래 명령어 실행
 
 ```bash
-sudo ufw disable  
+sudo firewall-cmd --permanent --add-port=10000/tcp
+sudo firewall-cmd --permanent --add-port=11000/tcp
+sudo firewall-cmd --permanent --add-port=12000/tcp
+sudo firewall-cmd --reload
 ```
 - license 적용
 
@@ -84,28 +87,28 @@ sudo ufw disable
 ## 설치 - automation node
 
 ```bash
-mkdir /data/dataiku/automation
+mkdir /dataiku/automation
 
-cd /opt/dataiku/dataiku-dss-14.3.1
-./installer.sh -t automation -d /data/dataiku/automation -p 10020
+cd /opt/dataiku/dataiku-dss-14.3.3
+./installer.sh -t automation -d /dataiku/automation -p 11000
 ```
 
 ## 실행 - automation node
 
 ```bash
 # Dataiku Automation Node 시작
-/data/dataiku/automation/bin/dss start
+/dataiku/automation/bin/dss start
 
 # 서비스 상태 확인
-/data/dataiku/automation/bin/dss status
+/dataiku/automation/bin/dss status
 
 # Linux 서버 부팅 시 자동 실행 설정
-sudo -i "/data/dataiku/dataiku-dss-14.3.1/scripts/install/install-boot.sh" "/data/dataiku/automation" dataiku
+sudo -i "/opt/dataiku/dataiku-dss-14.3.3/scripts/install/install-boot.sh" "/dataiku/automation" dataiku
 ```
 
 ## Automation node 접속
 
-- http://localhost:10020
+- http://<서버IP>:11000
 - license 적용
 
 
@@ -113,34 +116,34 @@ sudo -i "/data/dataiku/dataiku-dss-14.3.1/scripts/install/install-boot.sh" "/dat
 ## 설치 - api node
 
 ```bash
-mkdir /data/dataiku/api
-cd /opt/dataiku/dataiku-dss-14.3.1/
-./installer.sh -t api -d /data/dataiku/api -p 10030 -l /opt/dataiku/license.json
+mkdir /dataiku/api
+cd /opt/dataiku/dataiku-dss-14.3.3/
+./installer.sh -t api -d /dataiku/api -p 12000 -l /opt/dataiku/license.json
 ```
 
 ## 실행 - api node
 
 ```bash
 # Dataiku API Node 시작
-/data/dataiku/api/bin/dss start
+/dataiku/api/bin/dss start
 
 # 서비스 상태 확인
-/data/dataiku/api/bin/dss status
+/dataiku/api/bin/dss status
 
 # Linux 서버 부팅 시 자동 실행 설정
-sudo -i "/data/dataiku/dataiku-dss-14.3.1/scripts/install/install-boot.sh" "/data/dataiku/api" dataiku
+sudo -i "/opt/dataiku/dataiku-dss-14.3.3/scripts/install/install-boot.sh" "/dataiku/api" dataiku
 ```
 
 
 ## <img src="https://img.shields.io/badge/Deployer-Node-6f42c1?style=flat&logo=rocket">
-## 🟨 Infrastructure 연결 실행
+## Infrastructure 연결 실행
 
 ### 1. Automation node 연결
 
 #### 1.1. API Key 생성
 
 ```bash
-/data/dataiku/automation/bin/dsscli api-key-create --label Key-for-infra --admin true
+/dataiku/automation/bin/dsscli api-key-create --label Key-for-infra --admin true
 ```
 
 생성된 key 값 복사
@@ -158,7 +161,7 @@ sudo -i "/data/dataiku/dataiku-dss-14.3.1/scripts/install/install-boot.sh" "/dat
 #### 2.1. API Key 생성
 
 ```bash
-/data/dataiku/api/bin/apinode-admin admin-key-create
+/dataiku/api/bin/apinode-admin admin-key-create
 ```
 
 생성된 key 값 복사
@@ -171,5 +174,5 @@ sudo -i "/data/dataiku/dataiku-dss-14.3.1/scripts/install/install-boot.sh" "/dat
 4. Infrastructure ID 입력 후 "ADD" 버튼 클릭
 5. 좌측 메뉴에서 API Nodes 탭 선택
 6. "ADD AN API NODE" 버튼 클릭
-7. URL 입력, ex) http://api-node:10020
+7. URL 입력, ex) http://<서버IP>:12000
 8. Key 입력
